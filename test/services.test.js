@@ -1,11 +1,16 @@
 let chai =require('chai')
-let  expect=chai.expect;
+let  assert=chai.assert;
 let convertCurrency=require('../service/currconv').convertCurrency
 
-before("Testing conversion",()=>{
+describe("Testing conversion",()=>{
     it("should return converted values",()=>{
        let value= convertCurrency("CAD",1,"EUR")
        console.log(value)
-       expect(value).to.equal(.64)
+       assert.equal(value,.64)
     })
+    it("should return converted values",()=>{
+        let value= convertCurrency("EUR",1,"INR")
+        console.log(value)
+        assert.equal(value,89.21)
+     })
 })
