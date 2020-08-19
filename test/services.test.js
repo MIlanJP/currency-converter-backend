@@ -1,16 +1,33 @@
 let chai =require('chai')
 let  assert=chai.assert;
-let convertCurrency=require('../service/currconv').convertCurrency
+let convertCurr=require('../service/currconv')
 
 describe("Testing conversion",()=>{
     it("should return converted values",()=>{
-       let value= convertCurrency("CAD",1,"EUR")
+       let value= convertCurr.convertCurrency("CAD",1,"EUR")
        console.log(value)
        assert.equal(value,.64)
     })
     it("should return converted values",()=>{
-        let value= convertCurrency("EUR",1,"INR")
+        let value= convertCurr.convertCurrency("EUR",1,"INR")
         console.log(value)
         assert.equal(value,89.21)
      })
+
+     it("should return wrong values",()=>{
+      let value= convertCurr.convertCurrency("EUR",1,"INR")
+      console.log(value)
+      assert.notEqual(value,8)
+   })
+
+     it("should return list of currencies + testing",()=>{
+      let value= convertCurr.getAllCurrency()
+      console.log(value)
+      assert.equal(value.length,33)
+   })
+   it("should return list of currencies - testing",()=>{
+      let value= convertCurr.getAllCurrency()
+      console.log(value)
+      assert.notEqual(value.length,31)
+   })
 })
