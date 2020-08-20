@@ -13,14 +13,14 @@ currencyData.rates["INR"]=89.21
  * @description Used to convert send currency into required currency
  */
 exports.convertCurrency=(currencyFrom,value,currencyTo)=>{
-    console.log(currencyData.rates[currencyFrom])
-    console.log(value)
-    console.log(currencyData.rates[currencyTo])
     return (Math.round( (((1 / currencyData.rates[currencyFrom]) *  
     value) * currencyData.rates[currencyTo]) * 100)) / 100   
     
 }
 
+/**
+ * @description Used to send all lisyt of country currency data
+ */
 exports.getAllCurrency=()=>{
     return Object.keys(currencyData.rates);
 }

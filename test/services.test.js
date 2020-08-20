@@ -16,18 +16,16 @@ describe("Testing conversion",()=>{
 
      it("should return wrong values",()=>{
       let value= convertCurr.convertCurrency("EUR",1,"INR")
-      console.log(value)
+
       assert.notEqual(value,8)
    })
 
      it("should return list of currencies + testing",()=>{
       let value= convertCurr.getAllCurrency()
-      console.log(value)
       assert.equal(value.length,33)
    })
    it("should return list of currencies - testing",()=>{
       let value= convertCurr.getAllCurrency()
-      console.log(value)
       assert.notEqual(value.length,31)
    })
 })
